@@ -28,7 +28,7 @@
             <arg name="mu3" value="100.0"/>
         </include>
 
-        <node name="asar_ompl_node" pkg="asar_planner_visual_servoing" type="asar_ompl_test" output="screen" />
+        <node name="asar_ompl_node" pkg="asar_hybrid_tmp" type="asar_ompl_test" output="screen" />
 
     </group>
 

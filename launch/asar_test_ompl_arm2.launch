@@ -44,7 +44,7 @@
             <arg name="mu3" value="100.0"/>
         </include>
 
-        <node name="asar_ompl_node" pkg="asar_planner_visual_servoing" type="asar_ompl_grasp_server" output="screen" />
+        <node name="asar_ompl_node" pkg="asar_hybrid_tmp" type="asar_ompl_grasp_server" output="screen" />
 
     </group>
 
@@ -94,16 +94,16 @@
             <arg name="mu3" value="100.0"/>
         </include>
 
-        <node name="asar_ompl_node" pkg="asar_planner_visual_servoing" type="asar_ompl_grasp_server" output="screen" />
+        <node name="asar_ompl_node" pkg="asar_hybrid_tmp" type="asar_ompl_grasp_server" output="screen" />
 
     </group>
 
     
 
-    <node pkg="asar_planner_visual_servoing" name="ompl_planner" type="ompl_planner.py" output="screen">
+    <node pkg="asar_hybrid_tmp" name="ompl_planner" type="ompl_planner.py" output="screen">
     </node>
 
-    <node pkg="asar_planner_visual_servoing" name="collision_checker" type="collision_checker.py" output="screen">
+    <node pkg="asar_hybrid_tmp" name="collision_checker" type="collision_checker.py" output="screen">
     </node>
     
 </launch>
