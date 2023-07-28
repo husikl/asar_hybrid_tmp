@@ -1,5 +1,4 @@
 #include <asar_hybrid_tmp/grasp_server.h>
-
 AsarHybridTmp ::AsarHybridTmp(ros::NodeHandle &_node_handle,
                                         bool *           kill_this_node)
     : ac_follow_cart("FollowCartesianTarget", true),

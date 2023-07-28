@@ -1,0 +1,41 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/opt/ros/noetic/include/**",
+                "/usr/local/include/**",
+                "/usr/local/include/**",
+                "/home/nir/asar_ws/devel/include/**",
+                "/home/nir/asar_ws/src/asar_control/include/**",
+                "/home/nir/asar_ws/src/asar_hybrid_tmp/include/**",
+                "/home/nir/asar_ws/src/codcs_ik/include/**",
+                "/home/nir/asar_ws/src/forceps_control/include/**",
+                "/home/nir/asar_ws/src/gen3_control/gen3_control/include/**",
+                "/home/nir/asar_ws/src/mc_daq_ros/include/**",
+                "/home/nir/asar_ws/src/gen3_control/trac_ik_lib/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++14"
+        },
+        {
+            "name": "ros",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}
