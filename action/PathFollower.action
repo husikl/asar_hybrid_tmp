@@ -1,0 +1,9 @@
+#goal
+string command
+geometry_msgs/Pose[] path
+GraspTrajectory[] combined_path
+---
+#result
+bool success
+---
+#feedback

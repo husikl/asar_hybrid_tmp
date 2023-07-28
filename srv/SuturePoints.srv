@@ -1,0 +1,13 @@
+string type
+int32 id
+int32 num_of_points
+geometry_msgs/Point mid_point
+float64 radius
+float64 depth
+---
+bool inserted
+bool extracted
+bool sutured
+bool close_to
+geometry_msgs/Pose insertion_point
+geometry_msgs/Pose extraction_point

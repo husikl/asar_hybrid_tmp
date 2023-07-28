@@ -1,0 +1,3 @@
+int32 suture_point_id
+int32 number_of_suture_points
+int32 arm_id

@@ -1,0 +1,36 @@
+<launch>
+
+    <group ns ="/unit0">
+
+        <param name="image_rate" value="3"/>
+        <param name = "unit_id" value="0"/>
+
+        <include file="$(find asar_control)/launch/asar_control_main.launch">
+            <arg name="asar_cyclic_time_usec" value="1000"/>
+            <!-- <arg name="ik_solver" value="codcs_nlo"/> -->
+            <arg name="ik_solver" value="codcs_tp"/>
+            <!-- <arg name="error_method" value="only_p"/> -->
+            <arg name="error_method" value="log3"/>
+            <arg name="group_name" value="/unit0"/>
+            <arg name="constrained_control" value="false"/>
+            <!-- If constrained control = true -->
+            <arg name="trocar_x" value="0.4205"/>
+            <arg name="trocar_y" value="0.250"/>
+            <arg name="trocar_z" value="0.201"/>
+            <!-- Cost Coeff mu0: Position error  -->
+            <arg name="mu0" value="20.0"/>
+            <!-- Cost Coeff mu1: Orientation error  -->
+            <arg name="mu1" value="0.5"/>
+            <!-- Cost Coeff mu2: Joint distance  -->
+            <arg name="mu2" value="0.001"/>
+            <!-- Cost Coeff mu3: RCM error  -->
+            <arg name="mu3" value="2000.0"/>
+        </include>
+
+        <node name="asar_vs_node" pkg="asar_planner_visual_servoing" type="asar_vs_node" output="screen" />
+
+    </group>
+
+    
+
+</launch>

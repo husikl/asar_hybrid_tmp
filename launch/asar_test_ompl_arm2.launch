@@ -1,0 +1,109 @@
+<launch>
+
+    <group ns ="/unit0">
+
+        <param name="loop_rate" value="100"/> 
+        <param name = "unit_id" value="0"/>
+        <!-- <param name = "device_name" value="/geomagic"/> -->
+        <!-- <param name = "device_name" value="/touch"/> -->
+        <param name = "samples_number" value="8"/>
+        <param name = "waypoints_num" value="8"/>
+
+        <include file="$(find asar_control)/launch/asar_control_main.launch">
+            <arg name="group_name" value="/unit0"/>
+            <!-- Controller loop rate (us) -->
+            <arg name="asar_cyclic_time_usec" value="1000"/>
+            <arg name="arm_cyclic_time_usec" value="1000"/>
+            <arg name="forceps_cyclic_time_usec" value="8000"/>
+            <!-- Use of simulators -->
+            <arg name="use_arm_sim" default="true"/>
+            <arg name="use_forceps_sim" default="true"/>
+            <arg name="robot_ip_address" default="192.168.1.10"/>
+            <!-- IK Solver: ["codcs_tp", "codcs_nlo", "codcs"] -->
+            <arg name="ik_solver" value="codcs_nlo"/>
+            <arg name="error_method" value="log3"/>
+            <arg name="constrained_control" value="true"/>
+            <!-- If constrained control = true -->
+            <!-- <arg name="trocar_x" value="0.3405"/>
+            <arg name="trocar_y" value="0.250"/>
+            <arg name="trocar_z" value="0.351"/> -->
+
+            <arg name="trocar_x" value="0.3"/>
+            <arg name="trocar_y" value="0.3"/>
+            <arg name="trocar_z" value="0.2"/> 
+            <!-- <arg name="trocar_z" value="0.25"/>  -->
+
+            <!-- Cost Coeff mu0: Position error  -->
+            <arg name="mu0" value="20.0"/>
+            <!-- Cost Coeff mu1: Orientation error  -->
+            <!-- <arg name="mu1" value="0.5"/> -->
+            <arg name="mu1" value="10"/>
+            <!-- Cost Coeff mu2: Joint distance  -->
+            <arg name="mu2" value="0.0001"/>
+            <!-- Cost Coeff mu3: RCM error  -->
+            <arg name="mu3" value="100.0"/>
+        </include>
+
+        <node name="asar_ompl_node" pkg="asar_planner_visual_servoing" type="asar_ompl_grasp_server" output="screen" />
+
+    </group>
+
+
+     <group ns ="/unit1">
+
+        <param name="loop_rate" value="1000"/> 
+        <param name = "unit_id" value="1"/>
+        <!-- <param name = "device_name" value="/geomagic"/> -->
+        <!-- <param name = "device_name" value="/touch"/> -->
+        <param name = "samples_number" value="8"/>
+        <param name = "waypoints_num" value="8"/>
+
+        <include file="$(find asar_control)/launch/asar_control_main.launch">
+            <arg name="group_name" value="/unit1"/>
+            <!-- Controller loop rate (us) -->
+            <arg name="asar_cyclic_time_usec" value="1000"/>
+            <arg name="arm_cyclic_time_usec" value="1000"/>
+            <arg name="forceps_cyclic_time_usec" value="8000"/>
+            <!-- Use of simulators -->
+            <arg name="use_arm_sim" default="true"/>
+            <arg name="use_forceps_sim" default="true"/>
+            <arg name="robot_ip_address" default="192.168.1.10"/>
+            <!-- IK Solver: ["codcs_tp", "codcs_nlo", "codcs"] -->
+            <arg name="ik_solver" value="codcs_nlo"/>
+            <arg name="error_method" value="log3"/>
+            <arg name="constrained_control" value="true"/>
+            <!-- If constrained control = true -->
+            <!-- <arg name="trocar_x" value="0.625"/>
+            <arg name="trocar_y" value="-0.245"/>
+            <arg name="trocar_z" value="0.351"/> -->
+
+            <arg name="trocar_x" value="0.3"/>
+            <arg name="trocar_y" value="-0.2"/>
+            <arg name="trocar_z" value="0.2"/>
+            <!-- <arg name="trocar_z" value="0.25"/> -->
+
+
+            <!-- Cost Coeff mu0: Position error  -->
+            <arg name="mu0" value="20.0"/>
+            <!-- Cost Coeff mu1: Orientation error  -->
+            <!-- <arg name="mu1" value="0.5"/> -->
+            <arg name="mu1" value="10"/>
+            <!-- Cost Coeff mu2: Joint distance  -->
+            <arg name="mu2" value="0.0001"/>
+            <!-- Cost Coeff mu3: RCM error  -->
+            <arg name="mu3" value="100.0"/>
+        </include>
+
+        <node name="asar_ompl_node" pkg="asar_planner_visual_servoing" type="asar_ompl_grasp_server" output="screen" />
+
+    </group>
+
+    
+
+    <node pkg="asar_planner_visual_servoing" name="ompl_planner" type="ompl_planner.py" output="screen">
+    </node>
+
+    <node pkg="asar_planner_visual_servoing" name="collision_checker" type="collision_checker.py" output="screen">
+    </node>
+    
+</launch>

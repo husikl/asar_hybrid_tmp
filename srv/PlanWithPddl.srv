@@ -1,0 +1,6 @@
+string init_state
+string goal_state
+---
+bool solved
+PddlAction[] plan
+float32 cost

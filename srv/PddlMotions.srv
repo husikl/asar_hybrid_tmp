@@ -1,0 +1,14 @@
+# need to specify what for i.e. insert, passover or extract
+# if not specified will sample from the center of the needle
+string type
+geometry_msgs/Pose grasp
+geometry_msgs/Pose target_pose
+# geometry_msgs/Pose pose2
+int32 location_id
+---
+bool IKReachable
+geometry_msgs/Pose[] path
+GraspTrajectory[] combined_path
+geometry_msgs/Pose[] reachableGrasps
+int32 regrasps_num
+float32 pathLength

@@ -1,0 +1,15 @@
+# possible types: circular, elliptial
+# to do to add linear and spline
+# commands: insert, extract
+string type
+string command
+int32 num_waypoints
+int32 id
+geometry_msgs/Point mid_point
+float64 dist_between_points
+float64 depth
+---
+geometry_msgs/Point p_in
+geometry_msgs/Point p_out
+geometry_msgs/PoseArray waypoints
+float64 angle

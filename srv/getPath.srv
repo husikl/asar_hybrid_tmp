@@ -1,0 +1,13 @@
+geometry_msgs/Pose start
+geometry_msgs/Pose goal
+geometry_msgs/Pose[] collisionObjects
+geometry_msgs/Pose[] goalWaypoints
+string type
+string arm_index
+float64 time_out
+float64 speed
+---
+
+geometry_msgs/Pose[] path
+float64 pathLength
+int32 max_reachable_waypoint_id

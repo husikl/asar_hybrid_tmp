@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>asar_hybrid_tmp</name>
+  <version>0.0.1</version>
+  <description>The asar_hybrid_tmp package</description>
+
+  <!-- One maintainer tag required, multiple allowed, one person per tag -->
+  <!-- Example:  -->
+  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
+  <maintainer email="khusniddin@mein.nagoya-u.ac.jp">Khusniddin Fozilov</maintainer>
+
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>TODO</license>
+
+  <author email="khusniddin@mein.nagoya-u.ac.jp">Khusniddin Fozilov</author>
+
+
+
+ <buildtool_depend>catkin</buildtool_depend>
+  <depend>message_generation</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>asar_control</depend>
+  <depend>actionlib_msgs</depend>
+  <depend>actionlib</depend>
+  <depend>pinocchio</depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

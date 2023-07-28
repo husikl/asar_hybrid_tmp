@@ -1,0 +1,6 @@
+# need to specify what for i.e. insert, passover or extract
+# if not specified will sample from the center of the needle
+string action_type
+int32 location
+---
+geometry_msgs/Pose[] samples

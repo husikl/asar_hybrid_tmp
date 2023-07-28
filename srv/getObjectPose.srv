@@ -1,0 +1,7 @@
+# need to specify what for i.e. insert, passover or extract
+# if not specified will sample from the center of the needle
+string targetName
+string[] targetNames
+---
+geometry_msgs/Pose pose
+geometry_msgs/Pose[] poses

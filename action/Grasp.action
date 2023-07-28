@@ -1,0 +1,17 @@
+#goal
+string arm_index         
+string command
+int32 id
+geometry_msgs/Pose targetPose
+geometry_msgs/Pose grasp
+geometry_msgs/Pose[] multi_grasp
+int32 num_samples
+int32 num_waypoints
+float64 ompl_timeout
+
+---
+#result
+bool success
+int32 regrasps_num
+---
+#feedback

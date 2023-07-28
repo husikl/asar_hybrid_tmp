@@ -1,0 +1,6 @@
+geometry_msgs/Pose checkPose
+string arm_index
+float32[] jointValues
+---
+
+bool collision_free

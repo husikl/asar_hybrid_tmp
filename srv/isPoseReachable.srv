@@ -1,0 +1,5 @@
+geometry_msgs/Pose checkPose
+
+---
+float32[] jointValues
+bool valid

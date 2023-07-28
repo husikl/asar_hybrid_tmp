@@ -1,0 +1,11 @@
+string arm_index
+string type         
+string command
+int32 suture_point_id
+bool ik_feasible
+int32 number_of_samples
+int32 number_of_waypoints
+float64 ompl_timeout
+float64 success_rate
+float64 total_time
+geometry_msgs/Point[] data

@@ -1,0 +1,5 @@
+# expectedTipPose to sample and check if 
+# partner robot can reach the needle if it is moved to pose belowe
+geometry_msgs/Pose needlePose
+---
+bool can_grasp
