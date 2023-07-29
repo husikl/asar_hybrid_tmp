@@ -51,7 +51,7 @@
 
      <group ns ="/unit1">
 
-        <param name="loop_rate" value="1000"/> 
+        <param name="loop_rate" value="100"/> 
         <param name = "unit_id" value="1"/>
         <!-- <param name = "device_name" value="/geomagic"/> -->
         <!-- <param name = "device_name" value="/touch"/> -->
@@ -100,10 +100,13 @@
 
     
 
-    <node pkg="asar_hybrid_tmp" name="ompl_planner" type="ompl_planner.py" output="screen">
-    </node>
-
-    <node pkg="asar_hybrid_tmp" name="collision_checker" type="collision_checker.py" output="screen">
-    </node>
+    <!-- ompl planner -->
+    <node pkg="asar_hybrid_tmp" name="ompl_planner" type="ompl_planner.py" output="screen" />
     
+    <!-- flc based collision checker -->
+    <node pkg="asar_hybrid_tmp" name="collision_checker" type="collision_checker.py" output="screen"></node>
+    
+    <!-- helper node for handling suture points and publishing them to the simulator -->
+    <node pkg="asar_hybrid_tmp" name="suture_points_handler_node" type="suture_points_handler.py" output="screen"></node>
+
 </launch>

@@ -28,10 +28,16 @@
             <arg name="mu3" value="100.0"/>
         </include>
 
-        <node name="asar_ompl_node" pkg="asar_hybrid_tmp" type="asar_ompl_test" output="screen" />
+        
 
     </group>
-
+    <!-- ompl planner -->
+    <node pkg="asar_hybrid_tmp" name="ompl_planner" type="ompl_planner.py" output="screen" />
+    <!-- flc based collision checker -->
+    <node pkg="asar_hybrid_tmp" name="collision_checker" type="collision_checker.py" output="screen"></node>
+    
+    <!-- helper node for handling suture points and publishing them to the simulator -->
+    <node pkg="asar_hybrid_tmp" name="suture_points_handler_node" type="suture_points_handler.py" output="screen"></node>
     
 
 </launch>

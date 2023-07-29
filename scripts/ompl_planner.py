@@ -131,7 +131,7 @@ class AITMotionPlanner:
         self.planner.enablePruning(True)
         self.planner.setBatchSize(2)
         # self.planner.setRepairReverseSearch(True)
-        self.setup.setStartAndGoalStates(start, goal, 0.0005)
+        self.setup.setStartAndGoalStates(start, goal, 0.00001)
         # self.setup.setStartAndGoalStates(start, goal, 0.001)
         self.setup.setPlanner(self.planner)
 
@@ -147,8 +147,8 @@ class AITMotionPlanner:
             # self.setup.simplifySolution()
             path = self.setup.getSolutionPath()
             simplifier = og.PathSimplifier(self.setup.getSpaceInformation())
-            # simplifier.simplifyMax(path)
-            simplifier.smoothBSpline(path, 1, 0.005)
+            simplifier.simplifyMax(path)
+            simplifier.smoothBSpline(path, 1, 0.001)
 
             resolution = round((path.length()) / speed)
             
