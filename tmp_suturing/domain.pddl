@@ -2,23 +2,11 @@
     (:requirements :strips :equality :negative-preconditions )
     (:predicates
 		;  static predicates that do not change over time 
-		; (Conf ?q)
 		(IsArm ?arm)
-		; (IsNeedle ?needle)
-		; (Kin ?q ?p)
+
 		(IsPose ?pose)
 	    (AtPose ?arm ?pose)
-		; (IsInsertPoint ?inPoint)
-		; (isExtractPoint ?extPoint)
 
-		; (isHolding ?arm-a ?needle-n)
-		; (is-hand-empty ?arm-a )
-		
-		; (isExtracted ?needle ?extPoint)
-		; (isPose ?pose)
-		; (AtConf ?q)
-		; (CanIK ?arm ?pose)
-		; (CFree ?pose1 ?pose2 ?control)
 		(HandEmpty ?arm)
 		(isHolding ?arm ?needle)
 		(Motion  ?arm ?pose2 ?control)
@@ -46,15 +34,6 @@
 		; (hasGrasp ?arm ?grasp)
 		; (IsSuturePoint ?p)
 
-    	; Static predicates (predicates that do not change over time)
-
-
-
-
-
-
-
-
     )
 
 	(:functions
@@ -65,13 +44,11 @@
     	:parameters (?arm ?pose ?pose2 ?control)
     	:precondition
     		(and (Motion ?arm ?pose2 ?control)
-    			 ; (CanMove ?gripper) ; (Empty ?gripper)
-    			 (AtPose ?arm ?pose) ;(not (Unsafe ?control))
+    			 (AtPose ?arm ?pose) 
 				 )
     	:effect
     		(and (AtPose ?arm ?pose2)
     			 (not (AtPose ?arm ?pose))
-    			;  (not (CanMove ?gripper))
     			 (increase (total-cost) (Distance ?control)))
     )
 
@@ -99,8 +76,6 @@
 				(AtLocation ?needle ?loc)
 				(IKvalid ?arm ?loc ?grasp)
 				(GraspMotion ?arm ?grasp ?control)
-    			
-				; (not (isHolding ?arm ?needle))
 				
 				)
     	:effect
@@ -112,34 +87,6 @@
 				
     )
 
-	; assume that pose here is approach pose for the arm2
-	; why do we need a grasp? 
-	; (:action handover
-    ; 	:parameters (?arm1 ?arm2 ?needle  )
-    ; 	:precondition
-    ; 		(and	
-	; 			; (AtPose ?arm ?grasp)
-	; 			; (IsArm ?arm)
-	; 			; (IsPose ?grasp)
-	; 			; (IK ?arm2 ?pose ?grasp)
-	; 			; (GraspMotion ?arm2 ?grasp ?control)
-	; 			; (Motion ?arm ?pose ?grasp ?control)
-    ; 			(isHolding ?arm1 ?needle)
-	; 			(HandEmpty ?arm2)
-				
-	; 			)
-    ; 	:effect
-    ; 		(and 
-	; 			(isHolding ?arm2 ?needle)
-	; 			(not (isHolding ?arm1 ?needle))
-	; 			(not (HandEmpty ?arm2))
-	; 			(HandEmpty ?arm1)
-	; 			; (AtPose ?arm ?grasp)
-    ; 			;  (not (AtPose ?arm ?pose))
-	; 			(increase (total-cost) 0.1)
-	; 			)
-				
-    ; )
 
 	(:action insert_n
     	:parameters (?arm ?needle ?loc ?grasp ?control)
@@ -169,29 +116,20 @@
 				
 				(HandEmpty ?arm)
 				(AtLocation ?needle ?loc)
-				; (CanExtract ?arm ?grasp ?loc)
-				; (not (isHolding ?arm ?needle))
+				(CanExtract ?arm ?grasp ?loc)
+				(not (isHolding ?arm ?needle))
 				(isInserted ?needle ?loc)
     			(ExtractMotion ?arm ?grasp ?loc ?control)
 			)
     	:effect
     		(and 
 				(isSutured ?needle ?loc)
-				; (isHolding ?arm ?needle)
-				; (not (HandEmpty ?arm))
+				(isHolding ?arm ?needle)
+				(not (HandEmpty ?arm))
 				(increase (total-cost) (Distance ?control))
 			)
 				
     )
 
-
-    ; (:derived (Holding ?cup)
-    ;     (exists (?grasp) (and (IsGrasp ?cup ?grasp)
-    ;                           (Grasped ?cup ?grasp)))
-    ; )
-    ; (:derived (On ?cup ?block)
-    ;     (exists (?pose ?pose2) (and (BlockSupport ?cup ?pose ?block ?pose2)
-    ;                                 (AtPose ?cup ?pose) (AtPose ?block ?pose2)))
-    ; )
 )
 
