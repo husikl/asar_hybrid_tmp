@@ -920,6 +920,13 @@ double getManipulabilityScore(Eigen::VectorXd jointValues)
 
     samplePosesFromNeedle("insert",M_PI/8, samples_num_, samples);
     sortPosesByHighestManipulabilityScore(samples, sortedSamples);
+
+    for (auto s : sortedSamples)
+        {
+          geometry_msgs::Pose p;
+          poseSE3ToMsg(s.pose, p);
+          res.samples.push_back(p);
+        }
     
 
     return true;
