@@ -1,8 +1,9 @@
 # asar_hybrid_tmp
 
 ## Overview
+This repository implements concepts from the research paper: "Toward Autonomous Robotic Minimally Invasive Surgery: A Hybrid Framework Combining Task-Motion Planning and Dynamic Behavior Trees."
+It combines a task-motion planner with dynamic behavior trees to enable more robust and autonomous robotic surgical procedures.
 
-This repository contains action servers to control two 7DoF manipulators and simulation environments for suturing tasks. The work is a component of a research paper titled "A Hybrid Framework Combining Task-Motion Planning and Dynamic Behavior Trees for Minimally Invasive Surgery".
 
 ![Multi-Throw Suturing Example](gifs/dbt.gif)
 
@@ -52,3 +53,27 @@ To run some of the suturing benchmarks, select the function in `suture_benchmark
 To start the benchmark in a new terminal, use the command `rosservice call /start_benchmark "{}"`.
 
 #### TODO: Combine nodes to run the benchmark and create JSON-based config selection to run different tasks.
+
+## Reference
+If you find this repository helpful for your research, please consider citing our paper:
+```bibtex
+@ARTICLE{fozilov_2023,
+
+  author={Fozilov, Khusniddin and Colan, Jacinto and Sekiyama, Kosuke and Hasegawa, Yasuhisa},
+
+  journal={IEEE Access}, 
+
+  title={Toward Autonomous Robotic Minimally Invasive Surgery: A Hybrid Framework Combining Task-Motion Planning and Dynamic Behavior Trees}, 
+
+  year={2023},
+
+  volume={11},
+
+  number={},
+
+  pages={91206-91224},
+
+  keywords={Surgery;Planning;Robots;Needles;Robot kinematics;Trajectory;Autonomous systems;Minimally invasive surgery;Medical robotics;Motion planning;Autonomous systems;behavior trees;hierarchical deliberation;minimally invasive surgery;multi-throw suturing;nonlinear optimization;robotic surgery;task and motion planning},
+
+  doi={10.1109/ACCESS.2023.3308619}}
+```
